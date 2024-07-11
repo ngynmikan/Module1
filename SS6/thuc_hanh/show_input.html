@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show input</title>
+</head>
+<body>
+    <h2>Example 1</h2>
+    <button type="button" onclick="showMessage();">Click Me!</button>
+    <script>
+    function showMessage(){
+    alert('Xin chào!');
+    }
+    </script>
+    <h2>Example 2</h2>
+    <div id="messageDiv"></div>
+    <button type="button" onclick="showMessageInner();">Click Me!</button>
+    <script>
+        function showMessageInner(){
+            document.getElementById('messageDiv').innerHTML = 'Xin chào!';
+        }
+    </script>
+    <h2>Example 3</h2>
+    <button type="button" onclick="showMessageText();">Click Me!</button>
+    <script>
+        function showMessageText(){
+            document.write('Xin chào!');
+        }
+    </script>
+</body>
+</html>
