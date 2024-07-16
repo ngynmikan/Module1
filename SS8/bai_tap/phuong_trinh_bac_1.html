@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 1</title>
+</head>
+<body>
+
+<script>
+    alert("Giải phương trình: ax + b = 0");
+    let a = prompt("Nhập a:");
+    let b = prompt("Nhập b:");
+    if (a == 0) {
+        if (b == 0) {
+            alert("Phương trình có vô số nghiệm");
+        } else {
+            alert("Phương trình vô nghiệm");
+        }
+    } else {
+        let x = -b/a;
+        alert(parseFloat(x));
+    }
+</script>
+</body>
+</html>

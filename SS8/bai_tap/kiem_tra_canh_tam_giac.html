@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra cạnh tam giác</title>
+</head>
+<body>
+<!--a,b,c > 0-->
+<!--a + b > c-->
+<!--b + c > a-->
+<!--a + c > b-->
+
+<script>
+    alert("Kiểm tra 3 số thực nhập vào có phải là cạnh của tam giác hay không");
+
+    let a = parseFloat(prompt("Nhập a:"));
+    let b = parseFloat(prompt("Nhập b:"));
+    let c = parseFloat(prompt("Nhập c:"));
+
+    if (a > 0 && b > 0 && c > 0) {
+        if (a + b > c && b + c > a && a + c > b) {
+            alert("Đây là tam giác");
+        } else {
+            alert("3 cạnh nhập vào không tạo thành được tam giác");
+        }
+    } else {
+        alert("Các giá trị nhập vào phải lớn hơn 0!");
+    }
+</script>
+</body>
+</html>

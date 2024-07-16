@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương trình tính giá điện</title>
+</head>
+<body>
+<!--    Bậc 1: 0 - 50 kWh: 1.806 VND/kWh-->
+<!--    Bậc 2: 51 - 100 kWh: 1.866 VND/kWh-->
+<!--    Bậc 3: 101 - 200 kWh: 2.167 VND/kWh-->
+<!--    Bậc 4: 201 - 300 kWh: 2.729 VND/kWh-->
+<!--    Bậc 5: 301 - 400 kWh: 3.050 VND/kWh-->
+<!--    Bậc 6: 401 trở lên kWh: 3.151 VND/kWh-->
+
+    <script>
+        alert("Tính giá tiền điện");
+
+        let kWh = parseFloat(prompt("Nhập số kWh đã tiêu thụ: "));
+        let tienDien = 0;
+
+        if (kWh <= 50) {
+            tienDien = kWh * 1806;
+            alert("Số tiền điện tiêu thụ là: " +tienDien);
+        } else if (kWh <= 100) {
+            tienDien = 50 * 1806 + (kWh - 50) * 1866;
+            alert("Số tiền điện tiêu thụ là: " +tienDien);
+        } else if (kWh <= 200) {
+            tienDien = 50 * 1806 + 50 * 1866 + (kWh - 100) * 2167;
+            alert("Số tiền điện tiêu thụ là: " +tienDien);
+        } else if (kWh <= 300) {
+            tienDien = 50 * 1806 + 50 * 1866 + 100 * 2167 + (kWh - 200) * 2729;
+            alert("Số tiền điện tiêu thụ là: " +tienDien);
+        } else if (kWh <= 400) {
+            tienDien = 50 * 1806 + 50 * 1866 + 100 * 2167 + 100 * 2729 + (kWh - 300) * 3050;
+            alert("Số tiền điện tiêu thụ là: " +tienDien);
+        } else {
+            tienDien = 50 * 1806 + 50 * 1866 + 100 * 2167 + 100 * 2729 + 100 * 3050 + (kWh - 400) * 3151;
+            alert("Số tiền điện tiêu thụ là: " +tienDien);
+        }
+
+    </script>
+</body>
+</html>
