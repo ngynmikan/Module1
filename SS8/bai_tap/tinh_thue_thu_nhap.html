@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Income Tax</title>
+</head>
+<body>
+    <script>
+        alert("Tính thuế thu nhập cá nhân");
+
+        let income = parseFloat(prompt("Nhập số tiền thu nhập: "));
+        let tax = 0;
+
+        if (income <= 5000000) {
+            tax = income * 0.05;
+            alert("Thuế thu nhập cá nhân là: " +tax);
+        } else if (income <= 10000000) {
+            tax = 5000000 * 0.05 + (income - 5000000) * 0.1;
+            alert("Thuế thu nhập cá nhân là: " +tax);
+        } else if (income <= 18000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + (income - 10000000) * 0.15;
+            alert("Thuế thu nhập cá nhân là: " +tax);
+        } else if (income <= 32000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + (income - 18000000) * 0.2;
+            alert("Thuế thu nhập cá nhân là: " +tax);
+        } else if (income <= 52000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + (income - 32000000) * 0.25;
+            alert("Thuế thu nhập cá nhân là: " +tax);
+        } else if (income <= 80000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + 20000000 * 0.25 + (income - 52000000) * 0.3;
+            alert("Thuế thu nhập cá nhân là: " +tax);
+        } else {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + 20000000 * 0.25 + 28000000 * 0.3 + (income - 80000000) * 0.35;
+            alert("Thuế thu nhập cá nhân là: " +tax);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check student's rank</title>
+</head>
+<body>
+
+    <h2>Rating student</h2>
+    Nhập điểm kiểm tra: <input type="number" id="testScore"> <br>
+    Nhập điểm giữa kì: <input type="number" id="midtermScore"> <br>
+    Nhập điểm cuối kì: <input type="number" id="finalScore" > <br>
+    <button onclick="calculatePerformance()">Kiểm tra hạng</button>
+    <p id="result"></p>
+
+    <script>
+        function calculatePerformance(){
+            let testScore = parseFloat(document.getElementById('testScore').value);
+            let midtermScore = parseFloat(document.getElementById('midtermScore').value);
+            let finalScore = parseFloat(document.getElementById('finalScore').value);
+
+            if (isNaN(testScore) || isNaN(midtermScore) || isNaN(finalScore)) {
+                document.getElementById('result').innerText = "Please enter valid scores.";
+                return;
+            }
+
+            let averageScore = (testScore+midtermScore+finalScore)/3;
+            let rank;
+
+            if (averageScore >= 8.5) {
+                rank = 'Xuất sắc';
+            } else if (averageScore >= 8.0) {
+                rank = 'Giỏi';
+            } else if (averageScore >= 5.0) {
+                rank = 'Trung bình';
+            } else {
+                rank = 'Yếu';
+            }
+
+            document.getElementById("result").innerHTML = "Hạng học sinh là " +rank;
+
+        }
+    </script>
+</body>
+</html>
