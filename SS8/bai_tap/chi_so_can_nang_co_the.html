@@ -11,8 +11,8 @@
         let weight = parseFloat(prompt("Nhập cân nặng: "));
         let height = parseFloat(prompt("Nhập chiều cao: "));
 
-        let bmi = weight/(height^2);
-
+        let bmi = weight/(Math.pow(2));
+        
         if (bmi<18.5) {
             alert(bmi + " => Underweight");
         } else if (bmi<25) {
