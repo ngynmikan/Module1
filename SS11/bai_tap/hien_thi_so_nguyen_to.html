@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime number</title>
+</head>
+<body>
+    <script>
+        let numbers = parseInt(prompt("Nhập số nguyên tố cần in"));
+        printPrime(numbers);
+
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+       function printPrime(number) {
+            let count = 0;
+            let N = 2;
+            let result = 0;
+            while (count < number) {
+                if (isPrime(N)) {
+                    result += N + " ";
+                }
+                N++;
+            }
+       }
+
+       document.write(result);
+    </script>
+</body>
+</html>
