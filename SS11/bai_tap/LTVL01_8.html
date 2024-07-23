@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game đoán số</title>
+</head>
+<body>
+    <script>
+        let phamvi = Number(prompt("Trò chơi đoán số từ 0 - "));
+
+        if (isNaN(phamvi) || phamvi <= 0) {
+            alert("Vui lòng nhập một phạm vi hợp lệ!");
+        } else {
+            let soRamdom = Math.floor(Math.random() * phamvi);
+            let attempts = 0;
+            let maxAttempts = 3;
+            let nhapso;
+
+            while (attempts < maxAttempts) {
+                nhapso = Number(prompt("Nhập vào số muốn đoán (lần " + (attempts + 1) + " trong " + maxAttempts + ")"));
+
+                while (isNaN(nhapso) || nhapso < 0 || nhapso > phamvi) {
+                    alert(`Vui lòng nhập một số từ 0 đến ${phamvi}`);
+                    nhapso = Number(prompt("Nhập vào số muốn đoán (lần " + (attempts + 1) + " trong " + maxAttempts + ")"));
+                }
+
+                if (nhapso === soRamdom) {
+                    alert("Bạn đã đoán đúng!");
+                    break;
+                } else {
+                    alert("Bạn đoán sai!");
+                }
+
+                attempts++;
+
+                if (attempts === maxAttempts) {
+                    alert("Bạn đã hết lượt đoán! Số đúng là " + soRamdom);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
