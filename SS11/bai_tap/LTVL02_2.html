@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giai thừa</title>
+</head>
+<body>
+    <script>
+        let inputNumber = parseInt(prompt("Nhập số cần tính giai thừa: "));
+        factorial(inputNumber);
+
+        function factorial(input) {
+            let sum = 1;
+            if (input == 0)
+            {
+                alert("Nhập số lớn hơn 0");
+            }
+            else
+            {
+                for (let i = 1; i <= input; i++)
+                    sum = sum * i;
+                document.write("Giai thừa là: " +sum);
+            }
+        }
+    </script>
+</body>
+</html>
