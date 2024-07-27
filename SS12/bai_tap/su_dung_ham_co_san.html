@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm có sẵn</title>
+</head>
+<body>
+    <script>
+        function Bai1() {
+            myColor = ["Red", "Green", "White", "Black"];
+            console.log(myColor.toString());
+            console.log(myColor.join('-'));
+        }
+
+        function Bai2() {
+            let number = parseFloat(prompt("Nhập dãy số"));
+            let string = number.toString();
+            let result = [string[0]];
+            for (let i = 0; i < string.length - 1; i++) {
+                if (string[i] % 2 === 0 && string[i + 1] % 2 === 0) {
+                    result.push('-', string[i + 1]);
+                } else {
+                    result.push(string[i + 1]);
+                }
+            }
+            console.log(result.join(''));
+        }
+
+        function Bai3() {
+            var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+            let result = [];
+            let string2 = prompt("Nhập text");
+            string2 = string2.toString();
+
+            for (let i = 0; i < string.length; i++) {
+                if (UPPER.indexOf(string2[i]) !== -1) {
+                    result.push(string2[i].toLowerCase());
+                } else if (LOWER.indexOf(string2[i]) !== -1) {
+                    result.push(string2[i].toUpperCase());
+                } else {
+                    result.push(string2[i]);
+                }
+            }
+            console.log(result.join(''));
+        }
+    </script>
+</body>
+</html>

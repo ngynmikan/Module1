@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra phần tử mảnh lớn hơn 10</title>
+</head>
+<body>
+    <script>
+        let numArr = [];
+        for (let i = 0; i < 10; i++) {
+            numArr[i] = parseInt(Math.random()*100);
+        }
+        let count = 0;
+        for (let i = 0; i < 10; i++) {
+            if (numArr[i] >= 10) {
+                count++;
+            }
+        }
+        document.writeln(numArr);
+        document.write(count + " số lớn hơn 10");
+    </script>
+</body>
+</html>
