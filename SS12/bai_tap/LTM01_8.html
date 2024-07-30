@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrange</title>
+</head>
+<body>
+    <script>
+        const arrS = [];
+        for (let i = 0; i < 10; i++) {
+            arrS[i] = Math.floor(Math.random() *11);
+        }
+        console.log("Mảng ban đầu: \n" + arrS.toString());
+
+        let temp;
+        for (let i = 1; i < arrS.length; i++) {
+            if (arrS[i] > arrS[i - 1]) {
+                for (let j = 0; j <= i; j++) {
+                    if (arrS[j] < arrS[i]) {
+                        temp = arrS[i];
+                        arrS[i] = arrS[j];
+                        arrS[j] = temp;
+                    }
+                }
+            }
+        }
+
+        console.log("Mảng sau sắp xếp: " + arrS.toString());
+    </script>
+</body>
+</html>

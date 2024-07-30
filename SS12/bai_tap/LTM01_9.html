@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join array</title>
+</head>
+<body>
+    <script>
+        const arrFirst = [];
+        for (let i = 0; i < 10; i++) {
+            arrFirst[i] = Math.floor(Math.random() *11);
+        }
+        console.log("Mảng 1: \n" + arrFirst.toString());
+
+        const arrSecond = [];
+        for (let i = 0; i < 10; i++) {
+            arrSecond[i] = Math.floor(Math.random() *11);
+        }
+        console.log("Mảng 2: \n" + arrSecond.toString());
+
+        const arrJoin = [];
+
+        for (let i = 0; i < arrFirst.length; i++) {
+            arrJoin.push(arrFirst[i]);
+        }
+
+        for (let i = 0; i < arrSecond.length; i++) {
+            arrJoin.push(arrSecond[i]);
+        }
+
+        console.log(arrJoin.toString());
+
+    </script>
+</body>
+</html>

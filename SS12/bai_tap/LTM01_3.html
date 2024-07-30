@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const arrLength = +prompt("Nhập chiều dài mảng: ");
+        const arrT = new Array(arrLength);
+        for (let i = 0; i < arrLength; i++) {
+            arrT[i] = Math.floor(Math.random() *21);
+        }
+
+        let max = arrT[0];
+        let total = arrT[0];
+
+        for (let i = 1; i < arrT.length; i++) {
+            total += arrT[i];
+            if (arrT[i] > max) {
+                max = arrT[i];
+            }
+        }
+
+        const average = total / arrT.length;
+
+        alert(`Mảng: ${arrT}\nSố lớn nhất trong mảng: ${max}\nGiá trị trung bình: ${average}`);
+    </script>
+</body>
+</html>

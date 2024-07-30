@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check </title>
+</head>
+<body>
+    <script>
+        const arrS = [];
+        for (let i = 0; i < 10; i++) {
+            arrS[i] = Math.floor(Math.random() *11);
+        }
+        console.log(arrS.toString());
+
+        let numV = parseInt(prompt("Nhập 1 số nguyên: "));
+        let flag = false;
+
+        for (let i = 0; i < 10; i++) {
+            if (numV === arrS[i]) {
+                console.log("V is in the array");
+                flag = true;
+                break;
+            }
+        }
+
+        if (!flag) {
+            console.log("V isn't in the array");
+        }
+    </script>
+</body>
+</html>

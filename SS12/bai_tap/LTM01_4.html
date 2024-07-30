@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse Array</title>
+</head>
+<body>
+    <script>
+        const arrLength = +prompt("Nhập chiều dài mảng: ");
+        const arrF = new Array(arrLength);
+        for (let i = 0; i < arrLength; i++) {
+            arrF[i] = Math.floor(Math.random() *101);
+        }
+        const reArr = [];
+        for (let i = 0; i < arrLength; i++) {
+            reArr[i] = arrF[arrLength - 1 - i];
+        }
+
+        console.log("Given array: " + arrF.toString());
+        console.log("Reverse array: " + reArr.toString());
+
+    </script>
+</body>
+</html>

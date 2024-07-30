@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số lớn nhất trong mảng</title>
+</head>
+<body>
+    <script>
+        const arr2 = Array.from({ length: 10 }, () => Math.floor(Math.random() * 1001));
+        console.log(arr2);
+
+        let max = arr2[0];
+        let position = 0;
+
+        for (let i = 1; i < arr2.length; i++) {
+            if (arr2[i] > max) {
+                max = arr2[i];
+                position = i;
+            }
+        }
+        console.log(`Phần tử lớn nhất là: ${max}`);
+        console.log(`Vị trí của phần tử đó là: ${position}`);
+    </script>
+</body>
+</html>
