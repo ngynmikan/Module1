@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+    <script>
+        class Rectangle {
+            constructor(width, length) {
+                this.length = length;
+                this.width = width;
+            }
+
+            getArea() {
+                return this.length*this.length;
+            }
+
+            getCircumference() {
+                return this.getArea()*2;
+            }
+
+            displayRectangleOnScreen() {
+                let canvas = document.getElementById("display");
+                let ctxt = canvas.getContext("2d");
+                ctxt.fillStyle = "#3e8348";
+                ctxt.fillRect(0, 0, this.length, this.width);
+            }
+        }
+
+        let rectangle = new Rectangle(200, 400);
+        rectangle.displayRectangleOnScreen();
+        document.getElementById("show").innerHTML = "Area: " + rectangle.getArea() + "<br>Circumference: " + rectangle.getCircumference();
+    </script>
+</body>
+</html>
