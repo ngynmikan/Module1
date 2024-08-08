@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+    <script>
+        class temperature {
+            constructor(celsius) {
+                if (celsius < -273) {
+                    alert("Temperature is not avaiable");
+                } else {
+                    this.celsius = celsius;
+                }
+            }
+
+            toFar() {
+                return (this.celsius*9) / 5 + 32;
+            }
+
+            toKel() {
+                return this.celsius +237.15;
+            }
+
+        }
+
+        let temp = new temperature(100);
+        console.log(temp);
+        document.write("Kelvin: "+temp.toKel()+ "Fahrenheit: " +temp.toFar());
+    </script>
+</body>
+</html>
