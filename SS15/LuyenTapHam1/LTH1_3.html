@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 3</title>
+</head>
+<body>
+    <script>
+        function inputTwoNumber(number1, number2) {
+            let sum = 0;
+            if (number1 > number2)
+            {
+                alert(`${number1} is bigger than ${number2}`);
+            }
+            else
+            {
+                sum = number1 + number2;
+                alert(sum);
+            }
+        }
+
+        let num1 = parseFloat(prompt("Nhập vào số I: "));
+        let num2 = parseFloat(prompt("Nhập vào số II: "));
+
+        inputTwoNumber(num1, num2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 3</title>
+</head>
+<body>
+    <script>
+        function factorial(number) {
+            let factor = 1;
+            for (let i = 2; i <= number; i++) {
+                factor *= i;
+            }
+            return factor;
+        }
+
+        let number = parseInt(prompt("Nhập vào 1 số: "));
+        alert("Giai thừa: " +factorial(number));
+    </script>
+</body>
+</html>
