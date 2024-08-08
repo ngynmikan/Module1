@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 5</title>
+</head>
+<body>
+    <script>
+        const arrStar = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        const arrConstellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        function findConstellation(starName) {
+            for (let i = 0; i < arrStar.length; i++) {
+                if (arrStar[i].toLowerCase() === starName.toLowerCase()) {
+                    return arrConstellation[i];
+                }
+            }
+            return "Không thấy sao";
+        }
+
+        let starName = prompt("Nhập sao: ");
+        const constellation = findConstellation(starName);
+        console.log(`Sao ${starName} thuộc về chòm ${constellation}.`);
+
+    </script>
+</body>
+</html>

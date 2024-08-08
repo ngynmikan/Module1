@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 6</title>
+</head>
+<body>
+    <script>
+        let number = parseInt(prompt("Nhập số giá trị của mảng"), 10);
+        let arrayNumber = [];
+        for (let i = 0; i < number; i++) {
+            arrayNumber[i] = prompt("Nhập phần tử thứ " + i);
+        }
+        document.write("Mảng được tạo ra là: " + arrayNumber.join(", ") + "<br>");
+
+        arrayNumber = arrayNumber.map(item => item === '-' ? '_' : item);
+        document.write("Mảng mới là: " + arrayNumber.join(", "));
+    </script>
+</body>
+</html>

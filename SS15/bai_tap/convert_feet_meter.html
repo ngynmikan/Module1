@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert</title>
+</head>
+<body>
+    <script>
+        function feetToMeter(feet) {
+             let meter = 0;
+             meter = 0.305 * feet;
+             document.write(feet + " feet to meter: " +meter + "<br>");
+        }
+        function meterToFeet(meter) {
+            let feet = 0;
+            feet = 3.279 * meter;
+            document.write(meter + " meter to feet: " + feet +"<br>");
+        }
+
+        let feets = parseFloat(prompt("Nhập số feets: "));
+        let meters = parseFloat(prompt("Nhập số meters"));
+
+        feetToMeter(feets);
+        meterToFeet(meters);
+
+    </script>
+
+
+</body>
+</html>
