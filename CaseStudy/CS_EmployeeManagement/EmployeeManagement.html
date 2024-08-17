@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EMPLOYEE</title>
+    <style>
+        body {
+            background-color: #6CF5C1;
+        }
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: #34B1FA;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        #input-container {
+            margin-bottom: 20px;
+        }
+
+        #name-input,
+        #email-input,
+        #salary-input,
+        #update-name-input,
+        #update-email-input,
+        #update-salary-input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #000000;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #76F46D;
+            color: #000000;
+        }
+
+        #update-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #update-btn {
+            background-color: #2196F3;
+        }
+
+        #cancel-btn {
+            background-color: #f44336;
+        }
+
+        .edit-btn{
+            background-color: #ffc107;
+        }
+
+        .delete-btn{
+            background-color: #dc3545;
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <h1>Quản lý nhân viên</h1>
+    <div id="input-container">
+        <input type="text" id="name-input" placeholder="Nhập tên">
+        <input type="email" id="email-input" placeholder="Nhập email">
+        <input type="number" id="salary-input" placeholder="Nhập lương">
+        <button id="add-btn">Thêm</button>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Mã Nhân Viên</th>
+            <th>Tên Nhân Viên</th>
+            <th>Email Nhân Viên</th>
+            <th>Lương Nhân Viên</th>
+            <th>Tùy Chọn</th>
+        </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+    <div id="update-container">
+        <input type="text" id="update-name-input">
+        <input type="text" id="update-email-input">
+        <input type="number" id="update-salary-input">
+        <button id="update-btn">Cập nhật</button>
+        <button id="cancel-btn">Hủy</button>
+    </div>
+</div>
+<script>
+    const validRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    const nameInput = document.getElementById("name-input");
+    const emailInput = document.getElementById("email-input");
+    const salaryInput = document.getElementById("salary-input");
+    const addBtn = document.getElementById("add-btn");
+    const tableBody = document.getElementById("table-body");
+    const updateNameInput = document.getElementById("update-name-input");
+    const updateEmailInput = document.getElementById("update-email-input");
+    const updateSalaryInput = document.getElementById("update-salary-input");
+    const updateBtn = document.getElementById("update-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let currentUserId = null;
+
+    function renderTable() {
+        tableBody.innerHTML = "";
+        for (let i = 0; i < users.length; i++) {
+            const user = users[i];
+            const tr = document.createElement("tr");
+            const idTd = document.createElement("td");
+            const nameTd = document.createElement("td");
+            const emailTd = document.createElement("td");
+            const salaryTd = document.createElement("td");
+            const actionsTd = document.createElement("td");
+            const editBtn = document.createElement("button");
+            editBtn.className = "edit-btn";
+            const deleteBtn = document.createElement("button");
+            deleteBtn.className = "delete-btn";
+            idTd.innerText = user.id;
+            nameTd.innerText = user.name;
+            emailTd.innerText = user.email;
+            salaryTd.innerText = user.salary;
+            editBtn.innerText = "Sửa";
+            deleteBtn.innerText = "Xóa";
+            editBtn.addEventListener("click", () => {
+                showUpdateForm(user.id);
+            });
+            deleteBtn.addEventListener("click", () => {
+                deleteUser(user.id);
+            });
+            actionsTd.appendChild(editBtn);
+            actionsTd.appendChild(deleteBtn);
+            tr.appendChild(idTd);
+            tr.appendChild(nameTd);
+            tr.appendChild(emailTd);
+            tr.appendChild(salaryTd);
+            tr.appendChild(actionsTd);
+            tableBody.appendChild(tr);
+        }
+    }
+
+    function addUser() {
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const salary = salaryInput.value.trim();
+        if(email.match(validRegex)){
+            if(name && email != null){
+                var id = 1;
+                var val = users.map(function(x){return x.id; }).indexOf(id);
+                while(val != -1){
+                    id++;
+                    val = users.map(function(x){return x.id; }).indexOf(id);
+                }
+                const user = {
+                    id: id,
+                    name: name,
+                    email: email,
+                    salary: salary,
+                };
+                users.push(user);
+                localStorage.setItem("users", JSON.stringify(users));
+                nameInput.value = "";
+                emailInput.value = "";
+                salaryInput.value = "";
+                renderTable();
+            }else{
+                alert("Tên không hợp lệ!!!");
+            }
+        }else{
+            alert("Emai không hợp lệ!!!");
+        }
+    }
+
+    function updateUser() {
+        const name = updateNameInput.value;
+        const email = updateEmailInput.value;
+        const salary = updateSalaryInput.value;
+        if(email.match(validRegex)){
+            const index = users.findIndex((user) => user.id === currentUserId);
+            if (index !== -1) {
+                users[index].name = name;
+                users[index].email = email;
+                users[index].salary = salary;
+                localStorage.setItem("users", JSON.stringify(users));
+                hideUpdateForm();
+                renderTable();
+            }
+        }else{
+            alert("Emai không hợp lệ!!!");
+        }
+    }
+
+    function showUpdateForm(userId) {
+        const user = users.find((user) => user.id === userId);
+        if (user) {
+            updateNameInput.value = user.name;
+            updateEmailInput.value = user.email;
+            updateSalaryInput.value = user.salary;
+            currentUserId = user.id;
+            updateBtn.addEventListener("click", updateUser);
+            cancelBtn.addEventListener("click", hideUpdateForm);
+            updateBtn.style.display = "inline-block";
+            cancelBtn.style.display = "inline-block";
+            updateNameInput.style.display = "inline-block";
+            updateEmailInput.style.display = "inline-block";
+            updateSalaryInput.style.display = "inline-block";
+            document.getElementById("update-container").style.display = "block";
+        }
+    }
+
+    function hideUpdateForm() {
+        updateNameInput.value = "";
+        updateEmailInput.value = "";
+        updateSalaryInput.value = "";
+        currentUserId = null;
+        updateBtn.removeEventListener("click", updateUser);
+        cancelBtn.removeEventListener("click", hideUpdateForm);
+        updateBtn.style.display = "none";
+        cancelBtn.style.display = "none";
+        updateNameInput.style.display = "none";
+        updateEmailInput.style.display = "none";
+        updateSalaryInput.style.display = "none";
+        document.getElementById("update-container").style.display = "none";
+    }
+
+    function deleteUser(userId) {
+        users = users.filter((user) => user.id !== userId);
+        localStorage.setItem("users", JSON.stringify(users));
+        if (users.length == 0){
+            hideUpdateForm();
+        };
+        renderTable();
+    }
+    addBtn.addEventListener("click", addUser);
+    renderTable();
+</script>
+</body>
+</html>
