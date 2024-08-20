@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+</head>
+<body>
+    <script>
+
+        function roundScore(score) {
+            if (score < 0 || score > 100) {
+                return "Điểm phải nằm trong khoảng từ 0 cho đến 100";
+            }
+
+            if (score < 50) {
+                return "Kết quả: " + score + " => Trượt";
+            }
+
+            let multiple = Math.ceil(score/5) * 5;
+            if (multiple - score < 3) {
+                if (multiple < 50) {
+                    return "Kết quả: " + score + " => Đậu";
+                }
+                return "Kết quả: " + multiple + " => Đậu";
+            }
+            return "Kết quả: " + score + " => Đậu";
+        }
+
+        let scores = parseInt(prompt("Nhập điểm vào để kiểm tra kết quả: "));
+        alert(roundScore(scores));
+    </script>
+</body>
+</html>

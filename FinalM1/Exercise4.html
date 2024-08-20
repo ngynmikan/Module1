@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+</head>
+<body>
+    <script>
+        class Customer {
+            constructor(id, name, phone, address, email) {
+                this.id = id;
+                this.name = name;
+                this.phone = phone;
+                this.address = address;
+                this.email = email;
+            }
+
+            getId() {
+                return this.id;
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            getPhone() {
+                return this.phone;
+            }
+
+            getAddress() {
+                return this.address;
+            }
+
+            getEmail() {
+                return this.email;
+            }
+        }
+
+        function addCustomer() {
+            let id = document.getElementById("id").value;
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+            let email = document.getElementById("email").value;
+            customerList.push(new Customer(id, name, phone, address, email));
+            showCustomersList();
+        }
+
+        let customer1 = new Customer("01", "Nguyen Minh Khang", "0909111222", "Ba Ria Vung Tau", "minhkhangnguyen@gmail.com")
+        let customer2 = new Customer("01", "Nguyen Van A", "0909111333", "Ho Chi Minh", "vananguyen@gmail.com")
+        let customerList = [customer1, customer2];
+        showCustomersList();
+
+        function showCustomersList() {
+            let string = "";
+            for (let i = 0; i < customerList.length; i++) {
+                string += "<tr><td>" + customerList[i].getId() + "</td><td>" + customerList[i].getName() +
+                    "</td><td>" + customerList[i].getPhone() + "</td><td>" + customerList[i].getAddress() +
+                    "</td><td>" + customerList[i].getEmail() + "</td></tr>";
+            }
+        }
+        console.log(customerList);
+    </script>
+</body>
+</html>

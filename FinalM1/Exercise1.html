@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+    <script>
+        let arrLength = parseInt(prompt("Nhập chiều dài mảng: "));
+        if (arrLength > 20) {
+            alert("Chiều dài mảng không được quá 20 phần tử");
+        }
+        let arr = [];
+        for (let i = 0; i < arrLength; i++) {
+            let number = parseInt(prompt("Nhập từng phần tử: "))
+            arr.push(number);
+        }
+        document.write(arr);
+
+        let multiple = [];
+
+        for (let number of arr) {
+            if (number % 3 === 0 && number % 5 === 0) {
+                multiple.push(number);
+            }
+        }
+
+        function totalSum(array) {
+            let sum = 0;
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            return sum;
+        }
+
+       alert(totalSum(multiple));
+    </script>
+</body>
+</html>
